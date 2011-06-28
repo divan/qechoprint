@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/microphone.png</file>
+        <file>images/note.png</file>
+        <file>images/echonest.png</file>
+        <file>images/record.png</file>
+        <file>images/network.png</file>
+        <file>images/process.png</file>
+        <file>images/bg.jpg</file>
+        <file>images/sad.png</file>
+    </qresource>
+</RCC>
