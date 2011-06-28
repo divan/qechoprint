@@ -15,6 +15,7 @@
 
 #include "resultwindow.h"
 #include "codegenwrapper.h"
+#include "echonestaboutwindow.h"
 
 #ifdef Q_WS_MAEMO_5
     #include <QMaemo5InformationBox>
@@ -58,6 +59,12 @@ MainWindow::MainWindow(QWidget *parent)
     setAttribute(Qt::WA_Maemo5AutoOrientation);
 #endif
     ui->setupUi(this);
+
+    QAction * aboutAction = new QAction(tr("About EchoPrint"), this);
+    connect(aboutAction, SIGNAL(triggered()), this, SLOT(on_echoNestButton_clicked()));
+
+    ui->menuBar->addAction(aboutAction);
+
 
     nam = new QNetworkAccessManager(this);
 
@@ -133,7 +140,7 @@ void MainWindow::updateProgress(qint64 duration)
         return;
 
     ui->label->setText(tr("Recording %1 of %2 seconds...")
-            .arg((duration)/1000 + 1).arg(CAPTURE_TIME));
+            .arg((duration)/1000).arg(CAPTURE_TIME));
 }
 
 void MainWindow::processAudio(void)
@@ -302,4 +309,10 @@ void MainWindow::orientationChanged()
        ui->echoNestButton->move(280, 640);
     }
 #endif
+}
+
+void MainWindow::on_echoNestButton_clicked()
+{
+    EchoNestAboutWindow * window = new EchoNestAboutWindow(this);
+    window->show();
 }

@@ -42,6 +42,8 @@ private slots:
     void paintEvent(QPaintEvent*);
     void stopCapture(void);
 
+    void on_echoNestButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

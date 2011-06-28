@@ -13,13 +13,16 @@ MOBILITY += multimedia network
 SOURCES += src/main.cpp src/mainwindow.cpp \
     src/resultwindow.cpp \
     src/codegenwrapper.cpp \
-    src/recordermobility.cpp
+    src/recordermobility.cpp \
+    src/echonestaboutwindow.cpp
 HEADERS += src/mainwindow.h \
     src/resultwindow.h \
     src/codegenwrapper.h \
-    src/recordermobility.h
+    src/recordermobility.h \
+    src/echonestaboutwindow.h
 FORMS += src/ui/mainwindow.ui \
-    src/ui/resultwindow.ui
+    src/ui/resultwindow.ui \
+    src/ui/echonestaboutwindow.ui
 
 LIBS += -lcodegen
 
