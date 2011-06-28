@@ -56,10 +56,14 @@ OTHER_FILES += \
     debian/copyright \
     debian/control \
     debian/compat \
-    debian/changelog
+    debian/changelog \
+    src/translations/qechoprint_ru_RU.qm
 
 RESOURCES += \
     src/qechoprint.qrc
+
+TRANSLATIONS += \
+    src/translations/qechoprint_ru_RU.ts
 
 # Add files and directories to ship with the application
 # by adapting the examples below.

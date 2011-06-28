@@ -96,17 +96,22 @@ symbian {
     icon.files = installfiles/maemo5/$${TARGET}.png
     icon.path = /usr/share/icons/hicolor/64x64/apps
     desktopfile.files = installfiles/maemo5/$${TARGET}.desktop
+    translations.files = src/translations/*.qm
+    translations.path = $${installPrefix}/translations
     target.path = $${installPrefix}/bin
     export(icon.files)
     export(icon.path)
     export(desktopfile.files)
     export(desktopfile.path)
+    export(translations.files)
+    export(translations.path)
     export(target.path)
-    INSTALLS += desktopfile icon target
+    INSTALLS += desktopfile icon translations target
 }
 
 export (ICON)
 export (INSTALLS)
+export (TRANSLATIONS)
 export (DEPLOYMENT)
 export (TARGET.EPOCHEAPSIZE)
 export (TARGET.CAPABILITY)
