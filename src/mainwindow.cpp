@@ -22,7 +22,7 @@
 
 // Uncomment this to skip recording step
 // and use prerecorded audio from TEMP_FILE
-#define TEMP_DEV_MODE
+//#define TEMP_DEV_MODE
 
 #ifdef Q_WS_MAEMO_5
 const QString DEFAULT_FILE = "/home/user/MyDocs/echoprint.wav";
