@@ -45,13 +45,12 @@ using namespace QJson;
  * Returns allocated EchoNestSong object.
  * Called must care to delete after using.
  */
-EchoNestSong * EchoNestRequest::identifySong(QString code, int numCodes)
+EchoNestSong * EchoNestRequest::identifySong(QString code)
 {
     QUrl url(ECHONEST_API_URL + "song/identify");
     url.addQueryItem("api_key", _apiKey);
     url.addQueryItem("version", _codegenVersion);
     url.addQueryItem("code", code);
-    //url.addQueryItem("code_count", QString(numCodes));
 
     QVariantMap response = requestMethod(url);
     if (response.isEmpty())

@@ -22,7 +22,7 @@ public:
     void setAPIKey(const QString &apiKey);
     void setCodegenVersion(const QString &codegenVersion);
 
-    EchoNestSong * identifySong(QString code, int numCodes = 0);
+    EchoNestSong * identifySong(QString code);
 
 signals:
 
