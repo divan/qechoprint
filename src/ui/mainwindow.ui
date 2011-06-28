@@ -21,10 +21,10 @@
    <widget class="QPushButton" name="recordButton">
     <property name="geometry">
      <rect>
-      <x>223</x>
+      <x>222</x>
       <y>80</y>
-      <width>351</width>
-      <height>301</height>
+      <width>350</width>
+      <height>300</height>
      </rect>
     </property>
     <property name="text">
@@ -52,8 +52,8 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>741</width>
-      <height>61</height>
+      <width>740</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -75,8 +75,11 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="echoNestButton">
     <property name="geometry">
      <rect>
       <x>590</x>

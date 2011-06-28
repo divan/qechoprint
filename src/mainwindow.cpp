@@ -51,10 +51,13 @@ MainWindow::MainWindow(QWidget *parent)
     iconProcess = new QIcon(":/images/process.png");
     iconNetwork = new QIcon(":/images/network.png");
 
-    ui->setupUi(this);
+    connect(QApplication::desktop(), SIGNAL(resized(int)),
+            this, SLOT(orientationChanged()));
 #ifdef Q_WS_MAEMO_5
     setAttribute(Qt::WA_Maemo5StackedWindow);
+    setAttribute(Qt::WA_Maemo5AutoOrientation);
 #endif
+    ui->setupUi(this);
 
     nam = new QNetworkAccessManager(this);
 
@@ -230,7 +233,8 @@ void MainWindow::setOrientation(ScreenOrientation orientation)
 #endif // Q_OS_SYMBIAN
 
     Qt::WidgetAttribute attribute;
-    switch (orientation) {
+    switch (orientation)
+    {
 #if QT_VERSION < 0x040702
     // Qt < 4.7.2 does not yet have the Qt::WA_*Orientation attributes
     case ScreenOrientationLockPortrait:
@@ -277,3 +281,25 @@ void MainWindow::paintEvent(QPaintEvent*)
                       QImage(":/images/bg.jpg"));
 }
 
+void MainWindow::orientationChanged()
+{
+#ifdef Q_WS_MAEMO_5
+    QRect screenGeometry = QApplication::desktop()->screenGeometry();
+
+    // Landscape
+    if (screenGeometry.width() > screenGeometry.height())
+    {
+       ui->recordButton->move(222, 80);
+       ui->label->move(20, 10);
+       ui->label->resize(740, 60);
+       ui->echoNestButton->move(590, 310);
+    }
+    else // Portrait
+    {
+       ui->recordButton->move(62, 220);
+       ui->label->move(10, 50);
+       ui->label->resize(460, 100);
+       ui->echoNestButton->move(280, 640);
+    }
+#endif
+}

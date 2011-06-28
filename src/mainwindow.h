@@ -29,6 +29,7 @@ public:
     void showExpanded();
 
 private slots:
+    void orientationChanged();
     void on_recordButton_clicked();
 
     void updateProgress(qint64 pos);
